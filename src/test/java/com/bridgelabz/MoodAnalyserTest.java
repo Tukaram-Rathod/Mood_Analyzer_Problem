@@ -2,41 +2,28 @@ package com.bridgelabz;
 
 import org.junit.Assert;
 import org.junit.Test;
-//refactor uc
-//class mood analyzer test
+//class test
 public class MoodAnalyserTest {
-    //uc1 TC1.1
-    @Test
-    public void givenMessage_WhenSad_ShouldReturnSad(){
-        MoodAnalyser moodAnalyser = new MoodAnalyser();
-        String mood = moodAnalyser.analyseMood("I am in sad mood ");
-        Assert.assertEquals("HAPPY",mood);
-    }
-    //uc1 TC1.2
-    @Test
-    public void givenMessage_WhenNotSad_ShouldReturnHappy(){
-        MoodAnalyser moodAnalyser = new MoodAnalyser("HAPPY");
-        String mood = moodAnalyser.analyseMood("I am in  happy Mood ");
-        Assert.assertEquals("HAPPY",mood);
-    }
-    //uc1 Refactor TC1.1
-    @Test
-    public void givenMessage_Constructor_WhenSad_ShouldReturnSad(){
-        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad mood ");
-        String mood = moodAnalyser.analyseMood("SAD");
-        Assert.assertEquals("SAD",mood);
-    }
-    //uc1 Refactor TC1.2
-    @Test
-    public void givenMessagen_Constructor_WhenNotSad_ShouldReturnHappy(){
-        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in  happy Mood ");
-        String mood = moodAnalyser.analyseMood("Happy");
-        Assert.assertEquals("HAPPY",mood);
-    }
+    // test for nullpointer
     @Test
     public void givenNullMoodShouldReturnHappy(){
         MoodAnalyser moodAnalyser = new MoodAnalyser(null);
         String mood = moodAnalyser.analyseMood();
+        Assert.assertEquals("HAPPY",mood);
+    }
+    //test for thrown exception
+    @Test
+    public void givenNullMoodShouldThrowMoodAnalysisException()
+    {
+        MoodAnalyser moodAnalyzer = new MoodAnalyser();
+        String mood = moodAnalyzer.analyseMood();
+        Assert.assertEquals("HAPPY",mood);
+    }
+    @Test
+    public void givenEmptyMoodShouldThrowMoodAnalysisException()
+    {
+        MoodAnalyser moodAnalyzer = new MoodAnalyser();
+        String mood = moodAnalyzer.analyseMood();
         Assert.assertEquals("HAPPY",mood);
     }
 }
