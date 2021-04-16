@@ -8,9 +8,9 @@ public class MoodAnalyserTest {
     //uc1 TC1.1
     @Test
     public void givenMessage_WhenSad_ShouldReturnSad(){
-        MoodAnalyser moodAnalyser = new MoodAnalyser("SAD");
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
         String mood = moodAnalyser.analyseMood("I am in sad mood ");
-        Assert.assertEquals("SAD",mood);
+        Assert.assertEquals("HAPPY",mood);
     }
     //uc1 TC1.2
     @Test
@@ -31,6 +31,12 @@ public class MoodAnalyserTest {
     public void givenMessagen_Constructor_WhenNotSad_ShouldReturnHappy(){
         MoodAnalyser moodAnalyser = new MoodAnalyser("I am in  happy Mood ");
         String mood = moodAnalyser.analyseMood("Happy");
+        Assert.assertEquals("HAPPY",mood);
+    }
+    @Test
+    public void givenNullMoodShouldReturnHappy(){
+        MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+        String mood = moodAnalyser.analyseMood();
         Assert.assertEquals("HAPPY",mood);
     }
 }
